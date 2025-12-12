@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Website Documentation — Moulika Katragadda</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --brand:#7c3aed;
+      --brand2:#a855f7;
+      --bg:#ffffff;
+      --bg2:#faf7ff;
+      --ink:#0f172a;
+      --muted:#5b5b73;
+      --card:#ffffff;
+      --border: rgba(124, 58, 237, .16);
+      --shadow: 0 10px 22px rgba(2,6,23,.10);
+    }
+    body{
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .soft-bg{ background: var(--bg2); }
+    .shadow-soft{ box-shadow: var(--shadow); }
+    .card, .navbar{
+      background: var(--card) !important;
+      border-color: var(--border) !important;
+      color: var(--ink);
+    }
+    .text-secondary{ color: var(--muted) !important; }
+    .btn-primary{
+      background-color: var(--brand) !important;
+      border-color: var(--brand) !important;
+    }
+    .btn-primary:hover{
+      background-color: #6d28d9 !important;
+      border-color: #6d28d9 !important;
+    }
+    .badge.text-bg-primary{ background-color: var(--brand) !important; }
+    .doc-hero{
+      background:
+        radial-gradient(900px 450px at 15% 10%, rgba(124,58,237,.18), transparent 60%),
+        radial-gradient(800px 420px at 85% 15%, rgba(168,85,247,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title{
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+    .mini{
+      font-size: .95rem;
+    }
+    .list-tight li{ margin-bottom: .35rem; }
+    code{
+      background: var(--bg2);
+      padding: .1rem .3rem;
+      border-radius: .35rem;
+      border: 1px solid var(--border);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <span class="text-primary">★</span> Moulika Katragadda
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#docNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="docNav">
+        <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <div class="ms-lg-3">
+          <a class="btn btn-primary btn-sm" href="index.html">
+            <i class="bi bi-arrow-left"></i> Back to Portfolio
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="doc-hero py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-8">
+          <div class="badge text-bg-primary mb-2">Documentation</div>
+          <h1 class="display-6 section-title mb-2">Documentation Page</h1>
+          <p class="text-secondary mb-0">
+            This page lists the Bootstrap components and JavaScript features used in my one-page portfolio site.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-soft h-100">
+            <div class="card-body">
+              <h2 class="h5 fw-bold mb-3"><i class="bi bi-globe2 me-2"></i>Live Website URL</h2>
+              <div class="p-3 rounded-3 soft-bg border">
+                <div class="fw-semibold">https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPO/</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-soft h-100">
+            <div class="card-body">
+              <h2 class="h5 fw-bold mb-3"><i class="bi bi-git me-2"></i>Repository</h2>
+              <div class="p-3 rounded-3 soft-bg border">
+                <div class="fw-semibold">https://github.com/Moulikakatragadda/MoulikaPortfolio.git</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card shadow-soft">
+            <div class="card-body">
+              <h2 class="h4 fw-bold mb-3">Bootstrap Components Used</h2>
+
+              <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Layout &amp; Navigation</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><strong>Navbar</strong>: responsive navigation with collapse functionality</li>
+                      <li><strong>Container</strong>: responsive fixed-width containers</li>
+                      <li><strong>Grid System</strong>: rows and columns for responsive layout</li>
+                      <li><strong>Flexbox Utilities</strong>: <code>d-flex</code>, <code>align-items-center</code>, <code>justify-content-between</code>, <code>gap-*</code></li>
+                      <li><strong>ScrollSpy</strong>: highlights active section in the navbar while scrolling</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Components</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><strong>Cards</strong>: section blocks + skill/achievement boxes</li>
+                      <li><strong>Accordion</strong>: education modules by year</li>
+                      <li><strong>Modal</strong>: contact info popup + project details popup</li>
+                      <li><strong>Buttons</strong>: primary, outline, small button styles</li>
+                      <li><strong>Badges</strong>: tags for modules, projects, and highlights</li>
+                      <li><strong>Progress</strong>: skill bars + experience overview bars</li>
+                      <li><strong>Forms</strong>: contact form styling</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Styling &amp; Utilities</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><strong>Typography</strong>: <code>fw-bold</code>, <code>lead</code>, headings for hierarchy</li>
+                      <li><strong>Spacing</strong>: <code>py-5</code>, <code>mb-3</code>, <code>g-4</code>, <code>gap-*</code></li>
+                      <li><strong>Colors</strong>: light surfaces + purple accent theme (custom variables)</li>
+                      <li><strong>Rounded</strong>: <code>rounded</code>, <code>rounded-3</code>, <code>rounded-circle</code></li>
+                      <li><strong>Images</strong>: <code>img-fluid</code> for responsive images</li>
+                      <li><strong>Height</strong>: <code>h-100</code> to keep equal card heights</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Icons</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><strong>Bootstrap Icons</strong>: e.g. <code>bi-envelope</code>, <code>bi-linkedin</code>, <code>bi-clipboard-check</code>, <code>bi-eye</code></li>
+                      <li><strong>Icon sizes</strong>: e.g. <code>fs-5</code> for the LinkedIn icon</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card shadow-soft">
+            <div class="card-body">
+              <h2 class="h4 fw-bold mb-3">Dynamic Features &amp; JavaScript</h2>
+
+              <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Bootstrap JavaScript Features</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><strong>Navbar collapse</strong>: mobile menu toggle</li>
+                      <li><strong>Modal</strong>: contact popup + project details popup</li>
+                      <li><strong>Accordion</strong>: expand/collapse education years</li>
+                      <li><strong>ScrollSpy</strong>: updates active nav link while scrolling</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Custom JavaScript</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><strong>Scroll progress bar</strong>: shows reading progress at the top</li>
+                      <li><strong>Project filtering</strong>: buttons filter project cards by tag</li>
+                      <li><strong>Project modal content</strong>: modal pulls title/summary/bullets from button data attributes</li>
+                      <li><strong>Module search</strong>: filters module badges as you type</li>
+                      <li><strong>Skills slider</strong>: adjusts skill percentages based on the range slider value</li>
+                      <li><strong>Contact preview</strong>: live preview + 300-character limit</li>
+                      <li><strong>Theme toggle</strong>: button toggles dark/light theme and saves to localStorage</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card shadow-soft">
+            <div class="card-body">
+              <h2 class="h4 fw-bold mb-3">Responsive Design Features</h2>
+              <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Breakpoint Classes</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><code>col-lg-6</code>, <code>col-lg-7</code>, <code>col-lg-5</code>: layout changes on large screens</li>
+                      <li><code>col-md-4</code>, <code>col-md-6</code>: multi-column layouts on tablet+</li>
+                      <li><code>navbar-expand-lg</code>: collapses navbar on smaller screens</li>
+                      <li><code>g-*</code> and <code>gap-*</code>: spacing that adapts well across sizes</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Mobile Optimisation</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li>Touch-friendly buttons and spacing</li>
+                      <li>Responsive images using <code>img-fluid</code> / full-width section photos</li>
+                      <li>Cards stack vertically on small screens</li>
+                      <li>Sticky navbar for quick section navigation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card shadow-soft">
+            <div class="card-body">
+              <h2 class="h4 fw-bold mb-3">Project Structure</h2>
+              <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">Main Files</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><code>index.html</code>: main portfolio page</li>
+                      <li><code>documentation.html</code>: this documentation page</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="p-3 rounded-3 border soft-bg h-100">
+                    <h3 class="h6 fw-bold mb-2">External Dependencies</h3>
+                    <ul class="text-secondary list-tight mb-0">
+                      <li><strong>Bootstrap 5.3.3</strong>: CSS framework</li>
+                      <li><strong>Bootstrap Icons</strong>: icon library</li>
+                      <li><strong>Bootstrap JS bundle</strong>: interactive components (collapse, modal, accordion)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 soft-bg border-top">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="fw-bold">Moulika Katragadda</div>
+      <div class="text-secondary mini">Documentation page</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

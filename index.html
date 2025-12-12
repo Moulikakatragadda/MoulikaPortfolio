@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moulika Katragadda — Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --brand:#7c3aed;
+      --brand2:#a855f7;
+      --bg:#ffffff;
+      --bg2:#faf7ff;
+      --ink:#0f172a;
+      --muted:#5b5b73;
+      --card:#ffffff;
+      --border: rgba(124, 58, 237, .16);
+      --shadow: 0 10px 22px rgba(2,6,23,.10);
+    }
+    body.theme-dark{
+      --bg:#0b0a12;
+      --bg2:#120f1f;
+      --ink:#f3f4f6;
+      --muted:#b8b5c9;
+      --card:#0f0d1a;
+      --border: rgba(168,85,247,.22);
+      --shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+
+    body{
+      background: var(--bg);
+      color: var(--ink);
+      scroll-behavior: smooth;
+    }
+
+    #scrollProgress{
+      position: fixed;
+      top:0; left:0;
+      height:4px; width:0%;
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      z-index: 2000;
+    }
+
+    section{ scroll-margin-top: 90px; }
+    .soft-bg{ background: var(--bg2); }
+
+    .card, .navbar, .accordion-item, .modal-content{
+      background: var(--card) !important;
+      border-color: var(--border) !important;
+      color: var(--ink);
+    }
+    .text-secondary{ color: var(--muted) !important; }
+    .shadow-soft{ box-shadow: var(--shadow); }
+
+    .hero{
+      background:
+        radial-gradient(900px 450px at 15% 10%, rgba(124,58,237,.18), transparent 60%),
+        radial-gradient(800px 420px at 85% 15%, rgba(168,85,247,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+
+    .section-kicker{
+      text-transform: uppercase;
+      letter-spacing: .10em;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .btn-primary{
+      background-color: var(--brand) !important;
+      border-color: var(--brand) !important;
+    }
+    .btn-primary:hover{
+      background-color: #6d28d9 !important;
+      border-color: #6d28d9 !important;
+    }
+    .btn-outline-primary{
+      color: var(--brand) !important;
+      border-color: rgba(124,58,237,.45) !important;
+    }
+    .btn-outline-primary:hover{
+      background: rgba(124,58,237,.10) !important;
+    }
+    .badge.text-bg-primary{ background-color: var(--brand) !important; }
+    .progress-bar{ background: linear-gradient(90deg, var(--brand), var(--brand2)); }
+
+    .navbar .nav-link.active{
+      color: var(--brand) !important;
+      font-weight: 700;
+    }
+
+    .section-photo{
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+    }
+
+    .cert-img{
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    footer{
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body
+  data-bs-spy="scroll"
+  data-bs-target="#mainNav"
+  data-bs-root-margin="0px 0px -70%"
+  data-bs-smooth-scroll="true"
+  tabindex="0"
+>
+  <div id="scrollProgress"></div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">
+        <span class="text-primary">★</span> Moulika Katragadda
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navItems">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navItems">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="d-flex ms-lg-3 gap-2 align-items-center">
+          <a class="btn btn-outline-primary btn-sm" href="documentation.html" target="_blank">
+            <i class="bi bi-clipboard-check"></i> Documentation
+          </a>
+          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#quickContactModal">
+            <i class="bi bi-envelope"></i> Quick Contact
+          </button>
+          <button id="themeBtn" class="btn btn-outline-dark btn-sm" type="button" aria-label="Toggle theme">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero py-5">
+    <div class="container py-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-7">
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge text-bg-primary">Computing (AI & ML)</span>
+            <span class="badge text-bg-light border">Dublin, Ireland</span>
+            <span class="badge text-bg-light border">AWS Internship: Feb–Aug 2025</span>
+          </div>
+
+          <h1 class="display-5 fw-bold mb-2">Moulika Katragadda</h1>
+
+          <p class="lead text-secondary mb-3">Cloud • Full-stack • DevOps • Data Analysis</p>
+
+          <p class="text-secondary mb-4">
+            I’m a Computing with Artificial Intelligence & Machine Learning student with experience in cloud infrastructure,
+            full-stack development, and data analysis.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary" href="#projects">
+              View Projects <i class="bi bi-arrow-down-short"></i>
+            </a>
+            <a class="btn btn-outline-secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <div class="card shadow-soft border-0">
+            <div class="card-body p-4">
+              <div class="d-flex gap-3 align-items-center">
+                <img
+                  src="moulika pic.jpg"
+                  alt="Portrait of Moulika Katragadda"
+                  width="110"
+                  height="110"
+                  class="rounded-circle border object-fit-cover"
+                  onerror="this.src='moulika pic.jpg';"
+                />
+                <div>
+                  <h2 class="h5 fw-bold mb-1">BSc (Hons) Computing with AI & ML</h2>
+                  <div class="text-secondary">September 2022 — Present</div>
+
+                  <div class="d-flex align-items-center gap-2 small text-secondary">
+                    <span>Feel free to connect!</span>
+                    <a href="https://www.linkedin.com/in/moulikakatragadda"
+                       target="_blank"
+                       class="text-decoration-none text-primary"
+                       aria-label="LinkedIn profile">
+                      <i class="bi bi-linkedin fs-5"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4"/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-4">
+          <div class="section-kicker mb-2">About</div>
+          <h2 class="h3 fw-bold">About me</h2>
+          <p class="text-secondary mb-0">
+            As a self-motivated and aspiring final-year student, specialising in Computing with a strong emphasis on Artificial Intelligence and Machine Learning. My foundation in programming is diverse, with strong knowledge in multiple languages, including Python, C++, HTML/CSS, SQL, and JavaScript. I’m eager to learn, grow, and contribute to the tech landscape.
+          </p>
+        </div>
+
+        <div class="col-12 col-lg-8">
+          <div class="row g-3">
+            <div class="col-12">
+              <img class="section-photo" src="AWS Hackathon.jpg" alt="About section image"
+                   onerror="this.src='AWS Hackathon.jpg';">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="card shadow-soft h-100">
+                <div class="card-body">
+                  <h3 class="h6 fw-bold mb-2"><i class="bi bi-bullseye me-2"></i>Career goal</h3>
+                  <p class="text-secondary mb-0">
+                    A graduate role in cloud/software engineering where I can keep learning and building real products.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="card shadow-soft h-100">
+                <div class="card-body">
+                  <h3 class="h6 fw-bold mb-2"><i class="bi bi-lightning-charge me-2"></i>Strengths</h3>
+                  <ul class="text-secondary mb-0">
+                    <li>Problem-solving and attention to detail</li>
+                    <li>Teamwork and communication</li>
+                    <li>Quick learner</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="py-5 soft-bg border-top border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div>
+          <div class="section-kicker">Education</div>
+          <h2 class="h3 fw-bold mb-0">Modules by year</h2>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <i class="bi bi-search text-secondary"></i>
+          <input id="moduleSearch" class="form-control form-control-sm" style="max-width:280px" placeholder="Search modules..." />
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12">
+          <img class="section-photo" src="TUD.webp" alt="Education section image" onerror="this.src='TUD.webp';">
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <div class="card shadow-soft h-100">
+            <div class="card-body">
+              <h3 class="h5 fw-bold mb-1">TU Dublin</h3>
+              <p class="text-secondary mb-3">
+                BSc (Hons) in Computing with Artificial Intelligence & Machine Learning
+              </p>
+              <div class="text-secondary small">Use the search box to quickly find a module!</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <div class="accordion shadow-soft" id="modulesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#y1">Year 1</button>
+              </h2>
+              <div id="y1" class="accordion-collapse collapse show" data-bs-parent="#modulesAccordion">
+                <div class="accordion-body">
+                  <div class="row g-2">
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Visual Design & UX</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Computer Architecture</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Business & Information Systems</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Systems Analysis</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Software Development 1</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Critical Skills Development</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Operating Systems Fundamentals</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Discrete Mathematics 1</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Software Development 2</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Social Media Communications</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Database Fundamentals</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#y2">Year 2</button>
+              </h2>
+              <div id="y2" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                <div class="accordion-body">
+                  <div class="row g-2">
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Software Development 3</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Software Quality Assurance</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Advanced Database Technologies</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Network Fundamentals</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Client-Side Web Development</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Discrete Mathematics 2</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Software Development 4</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Group Project</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Data Administration & Analysis</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Routing & Switching Essentials</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Information Security</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Management Science</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#y3">Year 3</button>
+              </h2>
+              <div id="y3" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                <div class="accordion-body">
+                  <div class="row g-2">
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Serverside Web Development</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Operating Systems</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Cloud Services & Distributed Computing</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Big Data Technologies</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Business Studies & Information Systems</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Data Analysis</span></div>
+                    <div class="col-12"><span class="badge text-bg-primary w-100 text-start module-badge">Internship at AWS (Semester 2 — Aug 2025)</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#y4">Year 4 (Ongoing)</button>
+              </h2>
+              <div id="y4" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                <div class="accordion-body">
+                  <div class="row g-2">
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Data Analysis & Programming</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">DevOps — Continuous Integration & Deployment</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Interactive Media Design & Visualisation</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Computational Linguistics</span></div>
+                    <div class="col-12 col-md-6"><span class="badge text-bg-light border w-100 text-start module-badge">Applied Machine Learning</span></div>
+                    <div class="col-12"><span class="badge text-bg-light border w-100 text-start module-badge">Individual Research Project (Thesis)</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-5">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div>
+          <div class="section-kicker">Projects</div>
+          <h2 class="h3 fw-bold mb-0">Projects</h2>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Project filters">
+          <button class="btn btn-outline-primary btn-sm active" data-filter="all">All</button>
+          <button class="btn btn-outline-primary btn-sm" data-filter="cloud">Cloud</button>
+          <button class="btn btn-outline-primary btn-sm" data-filter="fullstack">Full-Stack</button>
+          <button class="btn btn-outline-primary btn-sm" data-filter="security">Security/Payments</button>
+        </div>
+      </div>
+
+      <div class="row g-4" id="projectGrid">
+        <div class="col-12 col-lg-6 project-item" data-tags="cloud fullstack">
+          <div class="card shadow-soft h-100">
+            <img class="section-photo rounded-top" style="border-radius: 1rem 1rem 0 0;" src="Cloud Classroom.png"
+                 alt="CloudClassroom project image" onerror="this.src='Cloud Classroom.png';">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <h3 class="h5 fw-bold mb-1">CloudClassroom</h3>
+                <span class="badge text-bg-primary">Cloud</span>
+              </div>
+              <p class="text-secondary mb-0">
+                Offline-first learning platform for limited connectivity. Content works offline and syncs when online.
+              </p>
+            </div>
+            <div class="card-footer border-0 pt-0 pb-3 px-3">
+              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal"
+                data-title="CloudClassroom"
+                data-summary="Cloud-based learning platform designed for limited connectivity."
+                data-bullets="Offline access to videos/PDFs/quizzes|Automatic sync when online|Secure authentication|Handles sync conflicts|Scalable approach"
+              >
+                <i class="bi bi-eye"></i> Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6 project-item" data-tags="fullstack security">
+          <div class="card shadow-soft h-100">
+            <img class="section-photo rounded-top" style="border-radius: 1rem 1rem 0 0;" src="Spice Garden.png"
+                 alt="Restaurant Management System project image" onerror="this.src='Spice Garden.png';">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <h3 class="h5 fw-bold mb-1">Restaurant Management System</h3>
+                <span class="badge text-bg-light border">Full-Stack</span>
+              </div>
+              <p class="text-secondary mb-0">
+                Online ordering + accounts + staff tools, with secure Stripe payments.
+              </p>
+            </div>
+            <div class="card-footer border-0 pt-0 pb-3 px-3">
+              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal"
+                data-title="Restaurant Management System"
+                data-summary="Full-stack restaurant system with payments."
+                data-bullets="Browse menu + daily specials|Accounts + order history + vouchers + reviews|Stripe payments|Staff menu edits + order processing"
+              >
+                <i class="bi bi-eye"></i> Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience" class="py-5 soft-bg border-top border-bottom">
+    <div class="container">
+      <div class="section-kicker">Experience</div>
+      <h2 class="h3 fw-bold mb-4">Experience</h2>
+
+      <div class="row g-4">
+        <div class="col-12">
+          <img class="section-photo" src="Experience.jpg" alt="Experience section image" onerror="this.src='Experience.jpg';">
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <div class="card shadow-soft">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
+                <div>
+                  <h3 class="h5 fw-bold mb-1">Cloud Support Associate Intern — AWS</h3>
+                  <div class="text-secondary">Feb 2025 – Aug 2025</div>
+                </div>
+                <span class="badge text-bg-primary">Internship</span>
+              </div>
+              <hr />
+              <ul class="text-secondary mb-0">
+                <li>Worked with EC2, S3, RDS, IAM</li>
+                <li>Automation using CloudFormation + Python</li>
+                <li>Monitoring with CloudWatch</li>
+                <li>Agile teamwork and demos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card shadow-soft mt-3">
+            <div class="card-body">
+              <h3 class="h6 fw-bold mb-2">Part-time & campus roles</h3>
+              <ul class="text-secondary mb-0">
+                <li><strong>Customer Service Representative</strong> — Waynua (Nov 2023 – Present)</li>
+                <li><strong>Student Ambassador</strong> — TU Dublin (Sep 2023 – Present)</li>
+                <li><strong>Marketing Manager / HR / Campus Rep</strong> — South Asian Society (Aug 2023 – Present)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <div class="card shadow-soft h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-bold mb-3">Quick overview</h3>
+
+              <div class="progress mb-2" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 85%;">Fast-Paced</div>
+              </div>
+              <div class="progress mb-2" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 80%;">Critical Thinking</div>
+              </div>
+              <div class="progress mb-2" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 90%;">Teamwork</div>
+              </div>
+
+              <hr />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="py-5">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div>
+          <div class="section-kicker">Skills</div>
+          <h2 class="h3 fw-bold mb-0">Skills & achievements</h2>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <label for="yearsRange" class="form-label mb-0 small text-secondary">Scale</label>
+          <input id="yearsRange" type="range" min="1" max="4" value="2" class="form-range" style="width:180px">
+          <span class="badge text-bg-light border" id="yearsLabel">2 years</span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12">
+          <img class="section-photo" src="AWS Health Hackathon.jpg" alt="Skills section image" onerror="this.src='AWS Health Hackathon.jpg';">
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-soft h-100">
+            <div class="card-body">
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small">
+                  <span>Python</span><span id="s-py">72%</span>
+                </div>
+                <div class="progress"><div id="p-py" class="progress-bar" style="width:72%"></div></div>
+              </div>
+
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small">
+                  <span>JavaScript</span><span id="s-js">66%</span>
+                </div>
+                <div class="progress"><div id="p-js" class="progress-bar" style="width:66%"></div></div>
+              </div>
+
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small">
+                  <span>Bootstrap / UI</span><span id="s-ui">78%</span>
+                </div>
+                <div class="progress"><div id="p-ui" class="progress-bar" style="width:78%"></div></div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between small">
+                  <span>SQL</span><span id="s-sql">62%</span>
+                </div>
+                <div class="progress"><div id="p-sql" class="progress-bar" style="width:62%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-soft h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-bold">Achievements</h3>
+              <ul class="text-secondary mb-0">
+                <li>Placed 3rd in Oracle APEX Rapid Application Development Hackathon</li>
+                <li>Placed 3rd in #GameJam Interactive Game Building Challenge</li>
+                <li>Participated in the AWS Health Hackathon</li>
+                <li>Completed the STEM Aspire Program (DELL)</li>
+                <li>Attended Nvidia Fundamentals of Deep Learning workshop</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTERED AWS CERT CONTAINER -->
+        <div class="col-12 col-lg-6 mx-auto">
+          <div class="card shadow-soft h-100">
+            <div class="card-body text-center">
+              <h3 class="h6 fw-bold mb-3">AWS Certificate</h3>
+              <img
+                src="SAA.png"
+                alt="AWS Certificate"
+                class="cert-img rounded-3 border img-fluid mx-auto"
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="hobbies" class="py-5 soft-bg border-top border-bottom">
+    <div class="container">
+      <div class="section-kicker">Hobbies</div>
+      <h2 class="h3 fw-bold mb-3">Hobbies</h2>
+
+      <div class="row g-4">
+        <div class="col-12">
+          <img class="section-photo" src="Women In Stem.jpg" alt="Hobbies section image" onerror="this.src='Women In Stem.jpg';">
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="p-4 border rounded-3 shadow-soft h-100">
+            <h3 class="h6 fw-bold">Sports</h3>
+            <p class="text-secondary mb-0">Badminton & Basketball clubs at TU Dublin.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="p-4 border rounded-3 shadow-soft h-100">
+            <h3 class="h6 fw-bold">Communities</h3>
+            <p class="text-secondary mb-0">Women in STEM, Irish Computing Society, South Asian Society.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="p-4 border rounded-3 shadow-soft h-100">
+            <h3 class="h6 fw-bold">Volunteering</h3>
+            <p class="text-secondary mb-0">CoderDojo volunteer and fundraising organiser.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2 class="h3 fw-bold mb-0">Contact</h2>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quickContactModal">
+          <i class="bi bi-envelope"></i> Contact details
+        </button>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-soft">
+            <div class="card-body">
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label class="form-label" for="nameInput">Name</label>
+                  <input id="nameInput" class="form-control" placeholder="Your name" required />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="emailInput">Email</label>
+                  <input id="emailInput" type="email" class="form-control" placeholder="name@email.com" required />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="messageInput">Message</label>
+                  <textarea id="messageInput" class="form-control" rows="4" placeholder="Write your message..." required></textarea>
+                  <div class="d-flex justify-content-between small mt-1">
+                    <span class="text-secondary"><span id="charCount">0</span>/300</span>
+                  </div>
+                </div>
+
+                <button class="btn btn-dark" type="submit">
+                  <i class="bi bi-send"></i> Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-soft">
+            <div class="card-body">
+              <h3 class="h6 fw-bold mb-2">Preview</h3>
+              <div class="p-3 rounded-3 border soft-bg">
+                <div class="small text-secondary">Name:</div>
+                <div class="fw-semibold" id="previewName">—</div>
+
+                <div class="small text-secondary mt-2">Email:</div>
+                <div class="fw-semibold" id="previewEmail">—</div>
+
+                <div class="small text-secondary mt-2">Message:</div>
+                <div class="text-secondary" id="previewMessage">Start typing to see a preview…</div>
+              </div>
+
+              <div class="mt-3">
+                <div class="text-secondary">moulikakatragadda05@gmail.com</div>
+                <div class="text-secondary">+353 85 261 4606</div>
+                <div class="text-secondary">Lucan, County Dublin</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="fw-bold">Moulika Katragadda</div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="quickContactModal" tabindex="-1" aria-labelledby="quickContactLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quickContactLabel">Contact Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-2"><strong>Email:</strong> moulikakatragadda05@gmail.com</p>
+          <p class="mb-2"><strong>Phone:</strong> +353 85 261 4606</p>
+          <p class="mb-0"><strong>Location:</strong> Lucan, County Dublin</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalLabel">Project</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="pmSummary" class="text-secondary mb-3"></p>
+          <ul id="pmBullets" class="text-secondary mb-0"></ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const progress = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", () => {
+      const h = document.documentElement;
+      progress.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+    });
+
+    const themeBtn = document.getElementById("themeBtn");
+    function setTheme(mode){
+      if(mode === "dark"){
+        document.body.classList.add("theme-dark");
+        themeBtn.innerHTML = '<i class="bi bi-sun"></i>';
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.body.classList.remove("theme-dark");
+        themeBtn.innerHTML = '<i class="bi bi-moon-stars"></i>';
+        localStorage.setItem("theme", "light");
+      }
+    }
+    setTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
+    themeBtn.addEventListener("click", () => {
+      setTheme(document.body.classList.contains("theme-dark") ? "light" : "dark");
+    });
+
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const projectItems = document.querySelectorAll(".project-item");
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const f = btn.dataset.filter;
+        projectItems.forEach(item => {
+          const tags = item.dataset.tags.split(" ");
+          item.style.display = (f === "all" || tags.includes(f)) ? "" : "none";
+        });
+      });
+    });
+
+    const projectModalEl = document.getElementById("projectModal");
+    projectModalEl.addEventListener("show.bs.modal", (event) => {
+      const btn = event.relatedTarget;
+      document.getElementById("projectModalLabel").textContent = btn.getAttribute("data-title") || "Project";
+      document.getElementById("pmSummary").textContent = btn.getAttribute("data-summary") || "";
+      const bullets = (btn.getAttribute("data-bullets") || "").split("|").filter(Boolean);
+      const ul = document.getElementById("pmBullets");
+      ul.innerHTML = "";
+      bullets.forEach(b => {
+        const li = document.createElement("li");
+        li.textContent = b;
+        ul.appendChild(li);
+      });
+    });
+
+    const yearsRange = document.getElementById("yearsRange");
+    const yearsLabel = document.getElementById("yearsLabel");
+    const base = { py:72, js:66, ui:78, sql:62 };
+    function clamp(n){ return Math.max(35, Math.min(95, n)); }
+    function updateSkills(){
+      const years = Number(yearsRange.value);
+      yearsLabel.textContent = years + (years === 1 ? " year" : " years");
+      const delta = (years - 2) * 6;
+
+      const vals = {
+        py: clamp(base.py + delta),
+        js: clamp(base.js + delta),
+        ui: clamp(base.ui + delta),
+        sql: clamp(base.sql + delta)
+      };
+
+      document.getElementById("p-py").style.width = vals.py + "%";
+      document.getElementById("p-js").style.width = vals.js + "%";
+      document.getElementById("p-ui").style.width = vals.ui + "%";
+      document.getElementById("p-sql").style.width = vals.sql + "%";
+
+      document.getElementById("s-py").textContent = vals.py + "%";
+      document.getElementById("s-js").textContent = vals.js + "%";
+      document.getElementById("s-ui").textContent = vals.ui + "%";
+      document.getElementById("s-sql").textContent = vals.sql + "%";
+    }
+    yearsRange.addEventListener("input", updateSkills);
+    updateSkills();
+
+    const nameInput = document.getElementById("nameInput");
+    const emailInput = document.getElementById("emailInput");
+    const messageInput = document.getElementById("messageInput");
+    const previewName = document.getElementById("previewName");
+    const previewEmail = document.getElementById("previewEmail");
+    const previewMessage = document.getElementById("previewMessage");
+    const charCount = document.getElementById("charCount");
+
+    function updatePreview(){
+      previewName.textContent = nameInput.value.trim() || "—";
+      previewEmail.textContent = emailInput.value.trim() || "—";
+      const limited = messageInput.value.slice(0, 300);
+      if(messageInput.value !== limited) messageInput.value = limited;
+      charCount.textContent = messageInput.value.length;
+      previewMessage.textContent = messageInput.value.trim() || "Start typing to see a preview…";
+    }
+    [nameInput, emailInput, messageInput].forEach(el => el.addEventListener("input", updatePreview));
+    updatePreview();
+
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Thanks! Message sent (demo).");
+    });
+
+    const moduleSearch = document.getElementById("moduleSearch");
+    const moduleBadges = document.querySelectorAll(".module-badge");
+    moduleSearch.addEventListener("input", () => {
+      const q = moduleSearch.value.trim().toLowerCase();
+      moduleBadges.forEach(b => {
+        const match = q === "" || b.textContent.toLowerCase().includes(q);
+        b.closest(".col-12").style.display = match ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
